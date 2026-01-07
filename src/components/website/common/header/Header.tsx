@@ -56,6 +56,7 @@ const Header = () => {
       >
         <div className="wrapper h-full">
           <div className="flex h-full w-full items-center justify-between">
+            <Link href="/">
             <Image
               src="/images/logo.png"
               alt="logo"
@@ -63,6 +64,7 @@ const Header = () => {
               height={100}
               className="object-contain"
             />
+            </Link>
 
             <div className="flex items-center gap-[50px]">
               <ul className="flex items-center gap-[50px]">

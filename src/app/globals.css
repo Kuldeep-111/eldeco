@@ -22,3 +22,14 @@ body {
   padding:0px 7%;
 }
 
+
+/* gsap style start */
+.reveal {
+  will-change: transform;
+}
+.img-reveal img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* gsap style end */

@@ -10,17 +10,19 @@ export const createSmoother = ({
   wrapper,
   content,
   smooth,
+  effects,
 }: {
   wrapper: HTMLElement;
   content: HTMLElement;
   smooth: number;
+  effects: boolean;
 }) => {
   if (!smoother) {
     smoother = ScrollSmoother.create({
       wrapper,
       content,
       smooth,
-      effects: true,
+      effects,
       normalizeScroll: true,
       ignoreMobileResize: true,
     });
