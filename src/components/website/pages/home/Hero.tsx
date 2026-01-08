@@ -29,32 +29,32 @@ const Hero = () => {
       </div>
 
       {/* Bottom Controls */}
-      <div className="absolute bottom-[70px] left-0 right-0 z-10 px-6">
-        <div className="mx-auto flex max-w-[100%] md:max-w-[90%] items-center justify-between gap-4  rounded-full md:px-6 py-3">
+      <div className="absolute w-full bottom-[20px] md:bottom-[70px] left-0 right-0 z-10 md:px-6">
+        <div className="mx-auto flex w-full md:w-[90%] items-center justify-center md:justify-between gap-4  rounded-full md:px-6 py-3">
           
           {/* Play Button */}
           <button className="flex items-center justify-center hover:scale-105 transition">
             {/* <FaPlay className="text-transparent"/> */}
-            <IoIosPlayCircle className="text-[50px] text-white"/>
+            <IoIosPlayCircle className="text-[25px] md:text-[50px] text-white"/>
           </button>
 
           {/* Search Input */}
-          <div className="flex items-center justify-between w-full max-w-xl border-b py-3 border-white">
+          <div className="flex items-center justify-between w-[50%] md:w-full max-w-xl border-b py-3 border-white">
             <input
               type="text"
               placeholder="Search by Project, Location "
-              className="w-full rounded-full  text-white placeholder:text-white outline-none"
+              className="w-full rounded-full text-[12px] md:text-[14px] text-white placeholder:text-white outline-none"
             />
             <IoSearchOutline className="text-white"/>
           </div>
 
           {/* Sound */}
           <div className=" text-white cursor-pointer">
-          <div className="flex items-center text-[23px]">
-            <BsSoundwave className="text-[20px]"/><BsSoundwave />
-          </div>
-            <span className="text-sm uppercase tracking-wider">Sound</span>
+            <div className="flex items-center text-[14px] md:text-[23px]">
+              <BsSoundwave className="text-[12px] md:text-[20px]" /><BsSoundwave />
             </div>
+            <span className="text-[10px] md:text-sm uppercase tracking-wider">Sound</span>
+          </div>
         </div>
       </div>
     </section>

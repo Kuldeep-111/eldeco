@@ -69,12 +69,12 @@ const Overview = () => {
 
       {/* Content */}
       <div className="relative z-10 flex h-full w-full items-start justify-end p-16">
-        <div className="max-w-[600px] text-right text-black">
+        <div className="w-full max-w-[600px] text-right text-black">
           {/* Counters */}
-          <div className="mb-10  flex items-center justify-center gap-[50px]">
+          <div className="mb-10  flex items-center justify-center gap-[10px] md:gap-[50px]">
             {data.items.map((item, index) => (
               <div key={index}>
-                <div className="font-cormorant md:text-[42px] md:leading-[60px]  font-light tracking-[1px] capitalize text-black text-center">
+                <div className="font-cormorant text-[22px] md:text-[42px] md:leading-[60px]  font-light tracking-[1px] capitalize text-black text-center">
                   <span
                     ref={(el) => {
                       if (el) countersRef.current[index] = el;
@@ -85,7 +85,7 @@ const Overview = () => {
                   </span>
                   {item.suffix}
                 </div>
-                <Heading  className=" md:!text-[30px] md:!leading-[45px] text-center">{item.desc}</Heading>
+                <Heading  className=" !text-[14px] md:!text-[30px] !leading-[25px] md:!leading-[45px] text-center">{item.desc}</Heading>
               </div>
             ))}
           </div>
