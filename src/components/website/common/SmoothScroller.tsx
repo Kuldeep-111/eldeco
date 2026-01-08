@@ -2,9 +2,13 @@
 
 import { useLayoutEffect, useRef, ReactNode } from "react";
 import { usePathname } from "next/navigation";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollSmoother from "gsap/ScrollSmoother";
 import { createSmoother, getSmoother } from "../utils/gsapSmoother";
 import { initImageReveals, initReveals } from "../utils/animation/revealAnimations";
-import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 interface SmoothScrollerProps {
   children: ReactNode;
@@ -25,7 +29,9 @@ export default function SmoothScroller({
   useLayoutEffect(() => {
     if (!wrapperRef.current || !contentRef.current) return;
 
-    // Create smoother only once
+    /* -------------------------
+       INIT SCROLL SMOOTHER (ONCE)
+    -------------------------- */
     if (!initialized.current) {
       createSmoother({
         wrapper: wrapperRef.current,
@@ -38,38 +44,61 @@ export default function SmoothScroller({
 
     const smoother = getSmoother();
 
-    // Scroll to top on route change
+    /* -------------------------
+       RESET SCROLL ON ROUTE CHANGE
+    -------------------------- */
     smoother?.scrollTo(0, false);
 
-    // Rescan parallax effects
+    /* -------------------------
+       RE-INIT EFFECTS
+    -------------------------- */
     smoother?.effects("[data-speed], [data-lag]");
-
-    // Re-init custom animations
     initReveals();
     initImageReveals();
 
-    // Refresh ScrollTrigger
-    ScrollTrigger.refresh(true);
+    /* -------------------------
+       FIXED FOOTER SETUP
+    -------------------------- */
+    const footer = document.querySelector<HTMLElement>(".footer");
+    const finalSection = document.querySelector<HTMLElement>(".final");
 
-    // 🔥 DYNAMIC PADDING FOR FIXED FOOTER
-    const updateFooterPadding = () => {
-      const footer = document.querySelector("footer");
-      if (footer && contentRef.current) {
-        const footerHeight = footer.getBoundingClientRect().height;
-        // Add extra buffer so you can scroll a bit past the content
-        contentRef.current.style.paddingBottom = `${footerHeight + 80}px`;
-      }
-    };
+    let footerTween: gsap.core.Tween | null = null;
 
-    // Run initially
-    updateFooterPadding();
+    if (footer && finalSection && contentRef.current) {
+      const footerHeight = footer.offsetHeight;
 
-    // Update on window resize (footer height may change on mobile/desktop)
-    window.addEventListener("resize", updateFooterPadding);
+      // ✅ SPACE FOR FOOTER (THIS IS REQUIRED)
+      contentRef.current.style.paddingBottom = `${footerHeight}px`;
 
-    // Cleanup
+      // hide footer initially
+      gsap.set(footer, {
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+        pointerEvents: "none",
+      });
+
+      footerTween = gsap.to(footer, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: finalSection,
+          start: "bottom bottom",
+          end: `+=${footerHeight}`,
+          scrub: true,
+          onEnter: () => (footer.style.pointerEvents = "auto"),
+          onLeaveBack: () => (footer.style.pointerEvents = "none"),
+        },
+      });
+    }
+
+    ScrollTrigger.refresh();
+
+    /* -------------------------
+       CLEANUP
+    -------------------------- */
     return () => {
-      window.removeEventListener("resize", updateFooterPadding);
+      footerTween?.scrollTrigger?.kill();
+      footerTween?.kill();
+
       if (contentRef.current) {
         contentRef.current.style.paddingBottom = "";
       }

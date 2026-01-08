@@ -7,9 +7,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
     <Header/>
+    <div id="fixed-components"></div>
     <SmoothScroller>
       <AnimationProvider>
-      <div className="relative bg-white">
+      <div className="final relative bg-white">
       {children}
       </div>
       </AnimationProvider>

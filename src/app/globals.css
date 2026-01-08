@@ -21,7 +21,18 @@ body {
   width: 100%;
   padding:0px 7%;
 }
+#smoothing-wrapper {  /* optional: ensure wrapper doesn't block */
+  pointer-events: none;
+}
 
+#smooth-content {
+  pointer-events: none;
+}
+
+/* Restore pointer events for ALL actual content inside */
+#smooth-content > * {
+  pointer-events: auto;
+}
 
 /* gsap style start */
 .reveal {
@@ -32,4 +43,9 @@ body {
   width: 100%;
   height: auto;
 }
+
 /* gsap style end */
+
+.footer.is-active {
+  pointer-events: auto;
+}
