@@ -67,7 +67,7 @@ const Header = () => {
             </Link>
 
             <div className="flex items-center gap-[50px]">
-              <ul className="flex items-center gap-[50px]">
+              <ul className="hidden md:flex items-center gap-[50px] ">
                 {list.map((item, index) => (
                   <li key={index}>
                     <Link

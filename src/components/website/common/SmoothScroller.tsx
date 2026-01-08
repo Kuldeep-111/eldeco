@@ -5,8 +5,10 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
+
 import { createSmoother, getSmoother } from "../utils/gsapSmoother";
 import { initImageReveals, initReveals } from "../utils/animation/revealAnimations";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -25,13 +27,12 @@ export default function SmoothScroller({
   const contentRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
   const pathname = usePathname();
+  const isMobile = useIsMobile();
 
   useLayoutEffect(() => {
     if (!wrapperRef.current || !contentRef.current) return;
 
-    /* -------------------------
-       INIT SCROLL SMOOTHER (ONCE)
-    -------------------------- */
+    /* ---------------- INIT SMOOTHER (ALL DEVICES) ---------------- */
     if (!initialized.current) {
       createSmoother({
         wrapper: wrapperRef.current,
@@ -43,58 +44,49 @@ export default function SmoothScroller({
     }
 
     const smoother = getSmoother();
-
-    /* -------------------------
-       RESET SCROLL ON ROUTE CHANGE
-    -------------------------- */
     smoother?.scrollTo(0, false);
 
-    /* -------------------------
-       RE-INIT EFFECTS
-    -------------------------- */
     smoother?.effects("[data-speed], [data-lag]");
     initReveals();
     initImageReveals();
 
-    /* -------------------------
-       FIXED FOOTER SETUP
-    -------------------------- */
-    const footer = document.querySelector<HTMLElement>(".footer");
-    const finalSection = document.querySelector<HTMLElement>(".final");
-
     let footerTween: gsap.core.Tween | null = null;
 
-    if (footer && finalSection && contentRef.current) {
-      const footerHeight = footer.offsetHeight;
+    /* ---------------- DESKTOP FOOTER ONLY ---------------- */
+    if (!isMobile) {
+      const footer = document.querySelector<HTMLElement>(".footer");
+      const finalSection = document.querySelector<HTMLElement>(".final");
 
-      // ✅ SPACE FOR FOOTER (THIS IS REQUIRED)
-      contentRef.current.style.paddingBottom = `${footerHeight}px`;
+      if (footer && finalSection && contentRef.current) {
+        const footerHeight = footer.offsetHeight;
 
-      // hide footer initially
-      gsap.set(footer, {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-        pointerEvents: "none",
-      });
+        // space for fixed footer
+        contentRef.current.style.paddingBottom = `${footerHeight}px`;
 
-      footerTween = gsap.to(footer, {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        ease: "none",
-        scrollTrigger: {
-          trigger: finalSection,
-          start: "bottom bottom",
-          end: `+=${footerHeight}`,
-          scrub: true,
-          onEnter: () => (footer.style.pointerEvents = "auto"),
-          onLeaveBack: () => (footer.style.pointerEvents = "none"),
-        },
-      });
+        // hide initially
+        gsap.set(footer, {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+          pointerEvents: "none",
+        });
+
+        footerTween = gsap.to(footer, {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: finalSection,
+            start: "bottom bottom",
+            end: `+=${footerHeight}`,
+            scrub: true,
+            onEnter: () => (footer.style.pointerEvents = "auto"),
+            onLeaveBack: () => (footer.style.pointerEvents = "none"),
+          },
+        });
+      }
     }
 
     ScrollTrigger.refresh();
 
-    /* -------------------------
-       CLEANUP
-    -------------------------- */
+    /* ---------------- CLEANUP ---------------- */
     return () => {
       footerTween?.scrollTrigger?.kill();
       footerTween?.kill();
@@ -103,7 +95,7 @@ export default function SmoothScroller({
         contentRef.current.style.paddingBottom = "";
       }
     };
-  }, [pathname, smooth, effects]);
+  }, [pathname, smooth, effects, isMobile]);
 
   return (
     <div id="smooth-wrapper" ref={wrapperRef}>

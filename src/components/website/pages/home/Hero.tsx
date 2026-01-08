@@ -3,6 +3,7 @@ import { FaPlay, FaVolumeUp } from "react-icons/fa";
 import { IoIosPlayCircle } from "react-icons/io";
 import { BsSoundwave } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
+import Heading from "../../common/typography/Heading";
 
 const Hero = () => {
   return (
@@ -20,17 +21,16 @@ const Hero = () => {
 
 
       {/* Center Content */}
-      <div className="relative z-10 flex h-full flex-col justify-center items-center text-center px-4">
-              <h1 className=" font-cormorant text-white text-center font-light capitalize  tracking-[1px]  leading-[130px]  text-[130px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.10)] ">
-                  Be Sure, <br />
-                  Live Better
-              </h1>
+      <div className="relative z-10 flex h-full flex-col justify-center items-center text-center px-1 md:px-4">
+              <Heading className="capitalize w-[320px] md:w-[500px] 2xl:w-[570px] mx-auto text-white tracking-[1px] leading-[80px]  !text-[70px] md:leading-[110px]  md:!text-[110px] 2xl:leading-[130px]  2xl:!text-[130px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.10)] ">
+                Be Sure,  Live Better
+              </Heading>
 
       </div>
 
       {/* Bottom Controls */}
       <div className="absolute bottom-[70px] left-0 right-0 z-10 px-6">
-        <div className="mx-auto flex max-w-[90%] items-center justify-between gap-4  rounded-full px-6 py-3">
+        <div className="mx-auto flex max-w-[100%] md:max-w-[90%] items-center justify-between gap-4  rounded-full md:px-6 py-3">
           
           {/* Play Button */}
           <button className="flex items-center justify-center hover:scale-105 transition">

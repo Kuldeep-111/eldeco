@@ -45,10 +45,11 @@ body {
 }
 
 /* gsap style end */
-.footer {
+/* .footer {
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
   will-change: clip-path;
 }
 .footer.is-active {
   pointer-events: auto;
-}
+} */
+

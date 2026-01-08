@@ -39,7 +39,7 @@ const data={
 const OurProjects = () => {
     const {heading,subheading,projects} = data;
   return (
-    <section className='relative'>
+    <section className='relative overflow-hidden'>
         <div className='py-[40px] md:py-[80px]'>
             <SubHeading >{heading}</SubHeading>
             <Heading className='text-center mt-[50px]'>{subheading}</Heading>

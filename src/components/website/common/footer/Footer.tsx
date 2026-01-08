@@ -29,7 +29,7 @@ const socialMedia=[
 
 const Footer = () => {
   return (
-    <footer className='footer fixed bottom-0 left-0 w-full z-[10]'>
+    <footer className='footer md:fixed md:bottom-0 md:left-0 w-full z-[10]'>
       <TopFooter/>
         <div className='bg-[var(--background)] py-[50px]'>
           <div className="grid grid-cols-1 md:grid-cols-3 w-[70%] mx-auto">

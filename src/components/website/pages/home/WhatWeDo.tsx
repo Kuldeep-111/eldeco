@@ -17,12 +17,12 @@ const data={
 const WhatWeDo = () => {
     const {heading,Subheading,projects}=data;
   return (
-    <section className='py-[40px] md:py-[100px] bg-[var(--background)]'>
+    <section className='py-[40px] md:py-[100px] bg-[var(--background)] overflow-hidden'>
         <div className="wrapper">
             <SubHeading className='mb-[50px]'>{heading}</SubHeading>
-           <Heading className='text-center w-[70%] mx-auto'>{Subheading}</Heading>
+           <Heading className='text-center md:w-[70%] mx-auto'>{Subheading}</Heading>
 
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-[50px] mt-[70px]">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] md:gap-[50px] mt-[70px]">
             {projects.map((item,index) =>(
                 <Card key={index} data={item}/>
             ))}

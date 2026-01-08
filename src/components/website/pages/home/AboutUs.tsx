@@ -11,8 +11,8 @@ const data={
 const AboutUs = () => {
 const {heading, subheading}=data;
   return (
-    <section className='py-[40px] md:py-[100px] bg-[var(--background)]'>
-        <div className=" w-[65%] mx-auto">
+    <section className='py-[40px] md:py-[100px] bg-[var(--background)] overflow-hidden'>
+        <div className="w-[95%] md:w-[65%] mx-auto">
             <SubHeading  className='mb-[50px] '>{heading}</SubHeading>
         <Heading  className=' text-center md:!text-[34px]'>{subheading}</Heading>
         <CustomLink href="/about-us" className='block w-fit mx-auto mt-[40px]'>Know More</CustomLink>

@@ -15,16 +15,16 @@ const data={
 const FeatureProjects = () => {
     const {image,alt,logo,projects}=data;
   return (
-    <section className='w-full h-[80vh] relative'>
+    <section className='w-full h-[50vh] md:h-[80vh] relative overflow-hidden'>
         <Image src={image} alt={alt} fill className='obejct-cover'/>
-        <div className="absolute top-[50px] right-[50px]">
-            <div className='flex item-center justify-center gap-[100px]'>
+        <div className="absolute  top-[50px] right-[10px] md:right-[50px]">
+            <div className='flex item-center justify-center gap-[20px] md:gap-[100px]'>
                 {projects.map((item,index) =>(
                     <CustomLink key={index} href={item?.link} >{item?.label}</CustomLink>
                 ))}
             </div>
-            <div className='relative mt-[100px]'>
-                <Image src={logo} alt='logo' width={350} height={250} className='object-contain'/>
+            <div className='relative mt-[50px] md:mt-[100px]'>
+                <Image src={logo} alt='logo' width={150} height={150} className='md:w-[250px] md:h-[200px] 2xl:w-[350px] 2xl:h-[250px] object-contain ml-auto md:ml-0'/>
             </div>
         </div>
       

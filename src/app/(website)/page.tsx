@@ -8,6 +8,7 @@ import Footer from "@/components/website/common/footer/Footer";
 import Leadership from "@/components/website/pages/home/Leadership";
 import WhatWeDo from "@/components/website/pages/home/WhatWeDo";
 import PressRelease from "@/components/website/pages/home/PressRelease";
+import Testimonial from "@/components/website/pages/home/Testimonial";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
      <OurProjects/>
      <WhatWeDo/>
      <Leadership/>
+     <Testimonial/>
      <PressRelease/>
    </>
   );

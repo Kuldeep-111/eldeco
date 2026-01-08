@@ -25,7 +25,7 @@ const PressCard: React.FC<CardProps> = ({ data }) => {
         />
         </div>
       </div>
-        <div className="flex w-full items-center justify-between px-[40px] py-[20px]">
+        <div className="flex w-full items-center justify-between px-[10px] md:px-[40px] py-[20px]">
           
           <Link href={link} aria-label={`Open ${desc}`}>
           <Pera className="text-center tracking-[1px] font-light">{desc}</Pera>

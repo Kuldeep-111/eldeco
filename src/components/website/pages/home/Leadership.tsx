@@ -20,16 +20,16 @@ const Leadership = () => {
     
     const {heading,subheading,image,name,position,label,link} = data;
   return (
-    <section>
+    <section className='overflow-hidden'>
         <div className='py-[40px] md:py-[80px]'>
             <SubHeading >{heading}</SubHeading>
             <Heading className='text-center mt-[50px]'>{subheading}</Heading>
         </div>
-                  <div  className="relative w-full h-[80vh] overflow-hidden">
+                  <div  className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
                       <div className="absolute inset-0">
                           <Image src={image} alt={name} fill className='object-cover' />
                       </div>
-                     <div className="w-full h-full py-[100px] max-w-[700px] mx-auto flex flex-col justify-end relative">
+                     <div className="w-full h-full px-[10px] py-[50px] md:py-[100px] max-w-[700px] mx-auto flex flex-col justify-end relative">
                         <Heading className='text-white text-center'>{position}</Heading>
                         <Pera className='text-white text-center uppercase tracking-[1px] font-light mt-[20px] mb-[30px]'>{name}</Pera>
                         <CustomLink href={link} className='text-white w-fit block mx-auto !text-[14px]'>{label}</CustomLink>

@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
   const { image, alt, category, slug } = data;
 
   return (
-    <div className="relative w-full h-[450px] overflow-hidden">
+    <div className="relative w-full h-[350px] md:h-[450px] overflow-hidden">
       <Image
         src={image}
         alt={alt}
