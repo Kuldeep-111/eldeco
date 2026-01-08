@@ -32,7 +32,7 @@ const Footer = () => {
     <footer className='footer md:fixed md:bottom-0 md:left-0 w-full z-[10]'>
       <TopFooter/>
         <div className='bg-[var(--background)] py-[50px]'>
-          <div className="grid grid-cols-1 md:grid-cols-3 w-[70%] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 md:w-[70%] mx-auto">
             <div>
               {leftLinks.map((item,index) =>(
                 <NavLink key={index} href={item?.link} className='block mb-[15px]'>{item?.label}</NavLink>
