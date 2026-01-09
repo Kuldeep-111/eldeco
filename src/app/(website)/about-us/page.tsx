@@ -1,7 +1,7 @@
 import Banner from '@/components/website/common/banner/Banner'
 import BasicDetails from '@/components/website/pages/about/BasicDetails';
+import CitiesPresence from '@/components/website/pages/about/CitiesPresence';
 import AboutUs from '@/components/website/pages/home/AboutUs'
-import OurProjects from '@/components/website/pages/home/OurProjects';
 import React from 'react'
 
 const banner={
@@ -23,7 +23,7 @@ const page = () => {
     <Banner data={banner}/>
     <AboutUs data={about}/>
     <BasicDetails/>
-    <OurProjects/>
+    <CitiesPresence/>
       
     </>
   )
