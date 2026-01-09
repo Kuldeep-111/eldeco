@@ -13,6 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="final relative bg-white">
       {children}
       </div>
+      <div className="trigger-footer h-px w-full"/>
       </AnimationProvider>
     </SmoothScroller>
     <Footer/>

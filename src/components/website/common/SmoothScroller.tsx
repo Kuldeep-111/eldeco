@@ -56,8 +56,9 @@ export default function SmoothScroller({
     if (!isMobile) {
       const footer = document.querySelector<HTMLElement>(".footer");
       const finalSection = document.querySelector<HTMLElement>(".final");
+      const footerWrapper = document.querySelector<HTMLElement>(".trigger-footer");
 
-      if (footer && finalSection && contentRef.current) {
+      if (footer && finalSection && contentRef.current && footerWrapper) {
         const footerHeight = footer.offsetHeight;
 
         // space for fixed footer
@@ -73,8 +74,8 @@ export default function SmoothScroller({
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           ease: "none",
           scrollTrigger: {
-            trigger: finalSection,
-            start: "bottom bottom",
+            trigger: footerWrapper,
+            start: "top bottom",
             end: `+=${footerHeight}`,
             scrub: true,
             onEnter: () => (footer.style.pointerEvents = "auto"),
