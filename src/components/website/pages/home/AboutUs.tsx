@@ -73,7 +73,7 @@ const AboutUs = ({ data }: AboutUsProps) => {
       ref={sectionRef}
       className="py-[40px] md:py-[100px] bg-[var(--background)] overflow-hidden"
     >
-      <div className="w-[95%] md:w-[65%] mx-auto">
+      <div className="w-[95%] md:w-[85%] 2xl:w-[65%] mx-auto">
         <SubHeading className="mb-[50px]">{heading}</SubHeading>
 
         <Heading

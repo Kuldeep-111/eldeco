@@ -1,56 +1,109 @@
-import React from 'react'
-import Heading from '../../common/typography/Heading'
+
+
+
+"use client";
+import React, { useState, useRef } from "react";
+import Heading from "../../common/typography/Heading";
 import { GoDotFill } from "react-icons/go";
+import Group from "./Group";
+
+type ActiveCity = {
+  image: string;
+  x: number;
+  y: number;
+};
 
 const data={
     heading:"Cities of Presence",
     cities:[
-        {label:"Lucknow",image:"/image/logo.png"},
-        {label:"Kanpur",image:"/image/logo.png"},
-        {label:"Agra",image:"/image/logo.png"},
-        {label:"Greater Noida",image:"/image/logo.png"},
-        {label:"Noida",image:"/image/logo.png"},
-        {label:"Gurgaon",image:"/image/logo.png"},
-        {label:"Panipat",image:"/image/logo.png"},
-        {label:"Sonipat",image:"/image/logo.png"},
-        {label:"Ludhiana",image:"/image/logo.png"},
-        {label:"Jhansi",image:"/image/logo.png"},
-        {label:"Bareilly",image:"/image/logo.png"},
-        {label:"Panchkula",image:"/image/logo.png"},
-        {label:"Neemrana",image:"/image/logo.png"},
-        {label:"Delhi",image:"/image/logo.png"},
-        {label:"Kasauli",image:"/image/logo.png"},
-        {label:"Rudrapur",image:"/image/logo.png"},
-        {label:"Gorakhpur",image:"/image/logo.png"},
-        {label:"Rishikesh",image:"/image/logo.png"},
-        {label:"Jalandhar",image:"/image/logo.png"},
+        {label:"Lucknow",image:"/images/logo.png"},
+        {label:"Kanpur",image:"/images/projects/project-1.webp"},
+        {label:"Agra",image:"/images/logo.png"},
+        {label:"Greater Noida",image:"/images/logo.png"},
+        {label:"Noida",image:"/images/logo.png"},
+        {label:"Gurgaon",image:"/images/logo.png"},
+        {label:"Panipat",image:"/images/logo.png"},
+        {label:"Sonipat",image:"/images/logo.png"},
+        {label:"Ludhiana",image:"/images/logo.png"},
+        {label:"Jhansi",image:"/images/logo.png"},
+        {label:"Bareilly",image:"/images/logo.png"},
+        {label:"Panchkula",image:"/images/logo.png"},
+        {label:"Neemrana",image:"/images/logo.png"},
+        {label:"Delhi",image:"/images/logo.png"},
+        {label:"Kasauli",image:"/images/logo.png"},
+        {label:"Rudrapur",image:"/images/logo.png"},
+        {label:"Gorakhpur",image:"/images/logo.png"},
+        {label:"Rishikesh",image:"/images/logo.png"},
+        {label:"Jalandhar",image:"/images/logo.png"},
     ]
 }
-
 const CitiesPresence = () => {
-    const {heading,cities} = data;
+  const { heading, cities } = data;
+
+  const [activeCity, setActiveCity] = useState<ActiveCity | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <section className='py-[40px] md:py-[100px]'>
-        <div className='w-full md:w-[70%] mx-auto px-[20px]'>
-            <Heading>{heading}</Heading>
-            <div className='flex justify-center flex-wrap gap-[5px] mt-[50px]'>
-                {cities.map((item,index) =>(
-                   <div
-                key={index}
-                className="flex items-center gap-2"
-              >
-                <Heading className="">
-                  {item.label}
-                </Heading>
+    <section className="py-[40px] md:py-[100px]">
+      <div className="w-full md:w-[57%] mx-auto px-[20px]">
+        <Heading>{heading}</Heading>
 
-                  <GoDotFill className="text-[12px] text-gray-400" />
-              </div>
-                ))}
+        <div
+          ref={containerRef}
+          className="relative flex justify-center flex-wrap gap-[8px] mt-[50px]"
+        >
+          {cities.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-2 cursor-pointer"
+              onMouseEnter={(e) => {
+                if (!containerRef.current) return;
+
+                const itemRect = e.currentTarget.getBoundingClientRect();
+                const containerRect =
+                  containerRef.current.getBoundingClientRect();
+
+                setActiveCity({
+                  image: item.image,
+                  x:
+                    itemRect.left -
+                    containerRect.left +
+                    itemRect.width / 2,
+                  y: itemRect.top - containerRect.top,
+                });
+              }}
+              onMouseLeave={() => setActiveCity(null)}
+            >
+              <Heading className="hover:text-black transition">
+                {item.label}
+              </Heading>
+              <GoDotFill className="text-[12px] text-gray-400" />
             </div>
-        </div>
-      
-    </section>
-  )
-}
+          ))}
 
-export default CitiesPresence
+          {activeCity && (
+            <div
+              className="pointer-events-none absolute z-50"
+              style={{
+                left: activeCity.x,
+                top: activeCity.y - 200,
+                transform: "translateX(-50%)",
+              }}
+            >
+              <img
+                src={activeCity.image}
+                alt=""
+                className="w-[250px] h-[250px] object-contain rounded-lg"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <Group/>
+
+    </section>
+  );
+};
+
+export default CitiesPresence;

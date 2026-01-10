@@ -7,8 +7,9 @@ import Heading from "../../common/typography/Heading";
 
 const Hero = () => {
   return (
-    <section className="relative h-[calc(100vh-70px)] mt-[70px] w-full overflow-hidden">
+    <section className="relative h-screen pt-[70px] w-full overflow-hidden">
       {/* Background Video */}
+      <div className="relative w-full h-full">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
@@ -18,15 +19,16 @@ const Hero = () => {
       >
         <source src="/videos/hero/banner.mp4" type="video/mp4" />
       </video>
+      </div>
 
 
       {/* Center Content */}
-      <div className="relative z-10 flex h-full flex-col justify-center items-center text-center px-1 md:px-4">
+      {/* <div className="relative z-10 flex h-full flex-col justify-center items-center text-center px-1 md:px-4">
               <Heading className="capitalize w-[320px] md:w-[500px] 2xl:w-[570px] mx-auto text-white tracking-[1px] leading-[80px]  !text-[70px] md:leading-[110px]  md:!text-[110px] 2xl:leading-[130px]  2xl:!text-[130px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.10)] ">
                 Be Sure,  Live Better
               </Heading>
 
-      </div>
+      </div> */}
 
       {/* Bottom Controls */}
       <div className="absolute w-full bottom-[20px] md:bottom-[70px] left-0 right-0 z-10 md:px-6">
