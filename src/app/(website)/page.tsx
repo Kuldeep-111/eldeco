@@ -13,7 +13,8 @@ const about = {
   heading: "about us",
   subheading:
     "Crafting Exceptional Infrastructure And Real Estate Projects With Unwavering Commitment To Quality, Innovation, And Long-Term Value—Delivering Environments That Empower Communities And Drive Sustainable Growth.",
-};
+  label:"know more",
+link:"/about-us"};
 
 export default function Home() {
 

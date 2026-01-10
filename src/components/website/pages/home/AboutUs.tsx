@@ -14,11 +14,13 @@ interface AboutUsProps {
   data: {
     heading: string;
     subheading: string;
+    label?: string;
+    link?: string;
   };
 }
 
 const AboutUs = ({ data }: AboutUsProps) => {
-  const { heading, subheading } = data; // ← Destructure here
+  const { heading, subheading ,label,link} = data; // ← Destructure here
 
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -82,10 +84,11 @@ const AboutUs = ({ data }: AboutUsProps) => {
         >
           {subheading}
         </Heading>
-
-        <CustomLink href="/about-us" className="block w-fit mx-auto mt-[40px]">
-          Know More
+       {link &&
+        <CustomLink href={link} className="block w-fit mx-auto mt-[40px]">
+          {label}
         </CustomLink>
+        }
       </div>
     </section>
   );

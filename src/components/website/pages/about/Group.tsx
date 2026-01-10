@@ -65,6 +65,7 @@ const Group = () => {
           onClose={() => {
             setOpen(false);
           }}
+          className="px-[10px]"
         >
           {activeGroup && (
             <div className="w-[60%] mx-auto">

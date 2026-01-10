@@ -1,4 +1,5 @@
 import Banner from '@/components/website/common/banner/Banner'
+import TeamCard from '@/components/website/pages/team/TeamCard'
 import React from 'react'
 
 
@@ -37,6 +38,7 @@ const page = () => {
   return (
     <>
     <Banner data={banner}/>
+    <TeamCard data={team}/>
       
     </>
   )

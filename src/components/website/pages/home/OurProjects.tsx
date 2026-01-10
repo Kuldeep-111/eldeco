@@ -4,6 +4,7 @@ import SubHeading from '../../common/typography/SubHeading';
 import Image from 'next/image';
 import Pera from '../../common/typography/Pera';
 import CustomLink from '../../common/typography/CustomLink';
+import { FaLocationDot } from "react-icons/fa6";
 
 const data={
     heading:"our projects",
@@ -51,8 +52,8 @@ const OurProjects = () => {
                           <Image src={item?.image} alt={item?.alt} fill className='object-cover' />
                       </div>
                      <div className="absolute top-[50px] left-[50px]">
-                        <Heading className='text-white'>{item?.name}</Heading>
-                        <Pera className='text-white uppercase tracking-[1px] md:!text-[22px] font-light mt-[20px] mb-[30px]'>{item?.location}</Pera>
+                        <Heading className='text-white text-left'>{item?.name}</Heading>
+                        <Pera className='text-white uppercase tracking-[1px] md:!text-[22px] font-light mt-[20px] mb-[30px]'><FaLocationDot className='text-white inline text-[20px] mr-[5px]'/>{item?.location}</Pera>
                         <CustomLink href={item?.name} className='text-white !text-[14px]'> Know More</CustomLink>
                      </div>
                   </div>

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Heading from "../typography/Heading";
 import FixedStrip from "./FixedStrip";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +21,8 @@ const Banner = ({ data }: BannerProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageWrapRef = useRef<HTMLDivElement>(null);
+
+  const isMobile = useIsMobile();
 
   useLayoutEffect(() => {
     if (!sectionRef.current || !textRef.current || !imageWrapRef.current)
@@ -53,7 +56,7 @@ const Banner = ({ data }: BannerProps) => {
         imageWrapRef.current,
         {
           width: "100%",
-          height: "80vh",
+          height: isMobile ? "100vh" :  "80vh",
           ease: "none",
         },
         0
@@ -72,9 +75,9 @@ const Banner = ({ data }: BannerProps) => {
       {/* TEXT */}
       <div
         ref={textRef}
-        className="absolute top-[120px] left-[30px] w-full max-w-[620px] h-[75vh] flex flex-col justify-between"
+        className="absolute top-[120px] left-[30px] w-full max-w-[620px] h-[200px] md:h-[75vh] flex flex-col justify-between"
       >
-        <Heading className="text-left capitalize tracking-[1px] !leading-[90px] !text-[70px]">
+        <Heading className="text-left capitalize tracking-[1px] !leading-[50px] md:!leading-[70px] 2xl:!leading-[90px] !text-[30px] md:!text-[50px] 2xl:!text-[70px]">
           {data.heading}
         </Heading>
 
@@ -87,7 +90,7 @@ const Banner = ({ data }: BannerProps) => {
       <div className="relative w-full h-full flex justify-end items-end">
         <div
           ref={imageWrapRef}
-          className="w-[50%] h-[360px] overflow-hidden"
+          className="w-full md:w-[50%] h-[360px] overflow-hidden"
         >
           <img
             src={data.image}

@@ -17,7 +17,8 @@ const about = {
   heading: "about us",
   subheading:
     "Eldeco's strength lies in its professional and experienced workforce. Apart from in-house capabilities, Eldeco employs best-in-class consultants and contractors to deliver quality projects. The Group's business activities rest on the principles of high quality, superior construction and high consumer satisfaction. Over the years, the Group has won numerous awards and accolades for its projects.",
-};
+  label:"explore our story",
+link:"/our-story"};
 
 
 const missionVisionData = [

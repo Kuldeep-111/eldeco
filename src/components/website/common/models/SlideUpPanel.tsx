@@ -50,7 +50,6 @@ const SlideUpPanel: React.FC<SlideUpPanelProps> = ({
         w-full
         overflow-hidden
         bg-white
-        px-[10px]
         ${className}
       `}
     >
@@ -64,7 +63,7 @@ const SlideUpPanel: React.FC<SlideUpPanelProps> = ({
       </button>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-1 md:p-6">
         {children}
       </div>
       </div>
