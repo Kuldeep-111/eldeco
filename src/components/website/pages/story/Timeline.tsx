@@ -33,7 +33,7 @@ const Timeline = ({ data }: TimelineProps) => {
   const markersRef = useRef<HTMLSpanElement[]>([]);
   const progressFillRef = useRef<HTMLSpanElement>(null);
 
-  const VISIBLE_HEIGHT = 350;
+  const VISIBLE_HEIGHT = 300;
 
   useLayoutEffect(() => {
     if (!sectionRef.current || !listRef.current) return;
@@ -117,7 +117,7 @@ const Timeline = ({ data }: TimelineProps) => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[var(--background)] h-screen overflow-hidden"
+      className="relative bg-[var(--background)] pt-[50px] h-screen overflow-hidden"
     >
       <div className="wrapper text-center pt-24 px-5 max-w-6xl mx-auto">
         <Heading className="2xl:!text-[70px] 2xl:!leading-[90px]">
@@ -170,7 +170,7 @@ const Timeline = ({ data }: TimelineProps) => {
             <span className="absolute w-full h-[1px] bg-black/40" />
             <span
               ref={progressFillRef}
-              className="absolute w-full h-[2px] bg-black origin-left scale-x-0"
+              className="absolute w-full h-[30%] bg-black origin-left scale-x-0"
             />
 
             {timeline.map((_, index) => (
