@@ -117,20 +117,20 @@ const Timeline = ({ data }: TimelineProps) => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[var(--background)] pt-[50px] h-screen overflow-hidden"
+      className="relative bg-[var(--background)] pt-[10px] md:pt-[50px] h-screen overflow-hidden"
     >
-      <div className="wrapper text-center pt-24 px-5 max-w-6xl mx-auto">
+      <div className="w-full text-center px-5 md:max-w-6xl mx-auto">
         <Heading className="2xl:!text-[70px] 2xl:!leading-[90px]">
           {heading}
         </Heading>
 
-        <Pera className="uppercase mt-6 tracking-[2px]">
+        <Pera className="uppercase mt-4 md:mt-6 tracking-[2px]">
           {subheading}
         </Pera>
 
         {/* TIMELINE */}
-        <div className="h-[300px] overflow-hidden mt-14">
-          <div ref={listRef} className="pb-[100px]">
+        <div className="h-[50vh] md:h-[300px] overflow-hidden mt-4 md:mt-7 2xl:mt-14">
+          <div ref={listRef} className="pb-[100px]"> 
             {timeline.map((item, index) => (
               <div
                 key={index}
@@ -150,11 +150,11 @@ const Timeline = ({ data }: TimelineProps) => {
                   <span className="flex-1 h-[1px] bg-black/60" />
                 </Pera>
 
-                <Heading className="my-[30px]">
+                <Heading className="my-[20px] 2xl:my-[30px]">
                   {item.title}
                 </Heading>
 
-                <Pera className="text-black/60 tracking-[2px] px-[50px]">
+                <Pera className="text-black/60 tracking-[2px] md:px-[50px]">
                   {item.desc}
                 </Pera>
               </div>
@@ -163,7 +163,7 @@ const Timeline = ({ data }: TimelineProps) => {
         </div>
 
         {/* PROGRESS */}
-        <div className="flex items-center justify-center gap-5 mt-12">
+        <div className="flex items-center justify-center gap-5 mt-[15px] 2xl:mt-12">
           <Pera>{timeline[0]?.year}</Pera>
 
           <div className="relative flex items-center">
@@ -191,7 +191,7 @@ const Timeline = ({ data }: TimelineProps) => {
         </div>
 
         {/* SCROLL HINT */}
-        <div className="mt-14 opacity-70">
+        <div className="mt-[15px] 2xl:mt-14 opacity-70">
           <Image
             src="/images/icons/hand.png"
             alt="Scroll hint"

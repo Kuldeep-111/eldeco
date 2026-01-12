@@ -19,34 +19,49 @@ const Header = () => {
     { label: "Terra Grade", link: "/terra-grade" },
   ];
 
-  useEffect(() => {
-    let lastScroll = 0;
+useEffect(() => {
+  let lastScroll = window.scrollY;
+  let ticking = false;
 
-    ScrollTrigger.create({
-      start: 0,
-      end: "max",
-      onUpdate: (self) => {
-        if (menuOpen) return;
-        const current = self.scroll();
+  const updateHeader = () => {
+    const current = window.scrollY;
 
-        if (current > lastScroll && current > 100 && !menuOpen) {
-          gsap.to(headerRef.current, {
-            yPercent: -100,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        } else {
-          gsap.to(headerRef.current, {
-            yPercent: 0,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        }
+    if (!menuOpen) {
+      if (current > lastScroll && current > 100) {
+        gsap.to(headerRef.current, {
+          yPercent: -100,
+          duration: 0.35,
+          ease: "power2.out",
+          overwrite: true,
+        });
+      } else if (current < lastScroll) {
+        gsap.to(headerRef.current, {
+          yPercent: 0,
+          duration: 0.35,
+          ease: "power2.out",
+          overwrite: true,
+        });
+      }
+    }
 
-        lastScroll = current;
-      },
-    });
-  }, [menuOpen]);
+    lastScroll = current;
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+  };
+}, [menuOpen]);
+
 
   return (
     <>
