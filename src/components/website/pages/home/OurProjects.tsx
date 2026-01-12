@@ -80,7 +80,6 @@ const OurProjects = () => {
         (item) => item.type === activeType
     );
 
-    // const Click =
     return (
         <section className='relative overflow-hidden'>
 
