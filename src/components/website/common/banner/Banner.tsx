@@ -70,12 +70,12 @@ const Banner = ({ data }: BannerProps) => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[var(--background)] px-[5%] h-screen w-full pb-[70px] overflow-hidden"
+      className="relative bg-[var(--background)] px-[7%] h-screen w-full pb-[70px] overflow-hidden"
     >
       {/* TEXT */}
       <div
         ref={textRef}
-        className="absolute top-[120px] left-[30px] w-full max-w-[620px] h-[200px] md:h-[75vh] flex flex-col justify-between"
+        className="absolute top-[120px] left-[7%] w-full max-w-[620px] h-[200px] md:h-[75vh] flex flex-col justify-between"
       >
         <Heading className="text-left capitalize tracking-[1px] !leading-[50px] md:!leading-[70px] 2xl:!leading-[90px] !text-[30px] md:!text-[50px] 2xl:!text-[70px]">
           {data.heading}

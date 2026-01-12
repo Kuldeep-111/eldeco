@@ -25,18 +25,18 @@ const timeline = {
     },
     {
       year:"1985",
-      title:"Ecpl Undertakes Real Estate And Construction Projects",
-      desc:"ECPL undertakes real estate and construction projects in Agra and other towns of UP and gradually acquires a strong reputation for its fair and transparent business practices.",
+      title:"ELDECO HOUSING AND INDUSTRIES LTD. (EHIL) GOES PUBLIC",
+      desc:"Eldeco Housing and Industries Ltd. (EHIL) goes public and is listed on the Bombay Stock Exchange. Public issue hailed by investors in Eldeco's catchment area of Agra in UP as a source of local pride.",
     },
     {
       year:"1985 - 1993",
-      title:"Ecpl Undertakes Real Estate And Construction Projects",
-      desc:"ECPL undertakes real estate and construction projects in Agra and other towns of UP and gradually acquires a strong reputation for its fair and transparent business practices.",
+      title:"ELDECO STRENGTHENS ITS POSITION AS THE MARKET LEADER IN UP",
+      desc:"Eldeco strengthens its position as the market leader in UP. Establishes strong presence in Lucknow developing, amongst others, a 200 acres township in joint development with Lucknow Development Authority - one of the first instances of Public-Private Partnership (PPP) in the country.",
     },
     {
-      year:"1994",
-      title:"Ecpl Undertakes Real Estate And Construction Projects",
-      desc:"ECPL undertakes real estate and construction projects in Agra and other towns of UP and gradually acquires a strong reputation for its fair and transparent business practices.",
+      year:"1993",
+      title:"O. P. BAJAJ JOINS EHIL AS CO-PROMOTER",
+      desc:"O. P. Bajaj, a prominent Agra based businessman, joins EHIL as co-promoter. The group adds many more projects to its portfolio in the next few years.",
     },
     {
       year:"1994 - 2022",

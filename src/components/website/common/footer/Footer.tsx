@@ -7,7 +7,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import Link from 'next/link';
 import BottomFooter from './BottomFooter';
-import TopFooter from './TopFooter';
 
 const leftLinks = [
   {label:"about us",link:"/"},
@@ -30,7 +29,6 @@ const socialMedia=[
 const Footer = () => {
   return (
     <footer className='footer md:fixed md:bottom-0 md:left-0 w-full z-[10]'>
-      <TopFooter/>
         <div className='bg-[var(--background)] py-[50px]'>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 md:w-[70%] mx-auto">
             <div>

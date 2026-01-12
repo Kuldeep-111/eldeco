@@ -90,7 +90,7 @@ const TopFooter: React.FC = () => {
   const activeCategory = FOOTER_DATA.find((c) => c.id === active);
 
   return (
-    <div className="py-[40px] md:py-[50px] bg-white">
+    <div className="py-[40px] md:py-[50px] bg-white min-h-[200px]">
       <div className="w-full md:w-[70%] mx-auto">
         {/* Tabs */}
         <div className="mb-5 grid gap-[10px] md:gap-10 grid-cols-3">
