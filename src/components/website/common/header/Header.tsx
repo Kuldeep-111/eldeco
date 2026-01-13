@@ -6,6 +6,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Menu from "./Menu";
+import TransitionLink from "../../transition/TransitionLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,7 +72,7 @@ useEffect(() => {
       >
         <div className="wrapper h-full">
           <div className="flex h-full w-full items-center justify-between">
-            <Link href="/">
+            <TransitionLink  href="/">
             <Image
               src="/images/logo.png"
               alt="logo"
@@ -79,18 +80,18 @@ useEffect(() => {
               height={100}
               className="object-contain"
             />
-            </Link>
+            </TransitionLink >
 
             <div className="flex items-center gap-[50px]">
               <ul className="hidden md:flex items-center gap-[50px] ">
                 {list.map((item, index) => (
                   <li key={index}>
-                    <Link
+                    <TransitionLink 
                       href={item.link}
                       className="uppercase tracking-[1px] transition-colors duration-300 ease-out hover:text-[var(--foreground)]"
                     >
                       {item.label}
-                    </Link>
+                    </TransitionLink>
                   </li>
                 ))}
               </ul>

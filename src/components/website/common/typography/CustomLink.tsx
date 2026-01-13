@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
+import TransitionLink from "../../transition/TransitionLink";
 
 type CustomLinkProps = {
   href: string;
@@ -15,7 +15,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   className = "",
 }) => {
   return (
-    <Link
+    <TransitionLink
       href={href}
       className={`
         text-[18px]
@@ -33,7 +33,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       `}
     >
       {children}
-    </Link>
+    </TransitionLink>
   );
 };
 

@@ -16,8 +16,8 @@ const FeatureProjects = () => {
     const {image,alt,logo,projects}=data;
   return (
     <section className='w-full h-[50vh] md:h-[80vh] relative overflow-hidden'>
-        <Image src={image} alt={alt} fill className='obejct-cover'/>
-        <div className="absolute  top-[50px] right-[10px] md:right-[50px]">
+        <Image src={image} alt={alt} fill className='object-cover'/>
+        <div className="absolute w-full max-w-[600px] flex flex-col items-end top-[50px] right-[10px] md:right-[50px]">
             <div className='flex item-center justify-center gap-[20px] md:gap-[100px]'>
                 {projects.map((item,index) =>(
                     <CustomLink key={index} href={item?.link} >{item?.label}</CustomLink>
