@@ -1,6 +1,6 @@
 "use client";
 
-import { useTransition } from "./TransitionContext";
+import { useTransition } from "../../../../providers/TransitionContext";
 
 const TransitionLink = ({
   href,

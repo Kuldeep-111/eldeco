@@ -6,7 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Heading from "../typography/Heading";
 import FixedStrip from "./FixedStrip";
-import { useIsMobile } from "../../hooks/useIsMobile";
+import { useIsMobile } from "../../../../hooks/website/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 

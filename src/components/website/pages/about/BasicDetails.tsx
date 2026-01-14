@@ -18,6 +18,7 @@ const data = [
 const BasicDetails = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  const endGap = 100; // 👈 space you want at the end (px)
 
   useEffect(() => {
     const cards = cardsRef.current;
@@ -26,7 +27,7 @@ const BasicDetails = () => {
     // Calculate total width needed to reveal all cards (excluding the first two visible ones)
     const totalWidth = cards.reduce((acc, card) => acc + card.offsetWidth, 0);
     const visibleWidth = containerRef.current.offsetWidth; // viewport width for cards container
-    const scrollDistance = totalWidth - visibleWidth; // how much to scroll horizontally
+    const scrollDistance = totalWidth - visibleWidth + endGap; // how much to scroll horizontally
 
     gsap.to(cards, {
       x: () => -scrollDistance, // move left by the remaining width

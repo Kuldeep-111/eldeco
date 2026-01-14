@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import TransitionLink from "../../transition/TransitionLink";
+import TransitionLink from "./TransitionLink";
 
 type CustomLinkProps = {
   href: string;

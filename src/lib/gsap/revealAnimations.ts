@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { getSmoother } from "../gsapSmoother";
+import { getSmoother } from "./gsapSmoother";
 
 gsap.registerPlugin(ScrollTrigger);
 

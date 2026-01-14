@@ -6,9 +6,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
 
-import { createSmoother, getSmoother } from "../utils/gsapSmoother";
-import { initImageReveals, initReveals } from "../utils/animation/revealAnimations";
-import { useIsMobile } from "../hooks/useIsMobile";
+import { createSmoother, getSmoother } from "../lib/gsap/gsapSmoother";
+import { initImageReveals, initReveals } from "../lib/gsap/revealAnimations";
+import { useIsMobile } from "../hooks/website/useIsMobile";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 

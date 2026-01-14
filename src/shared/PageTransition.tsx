@@ -63,15 +63,15 @@ const PageTransition = () => {
         .timeline()
         .to(panel1.current, {
           yPercent: -100,
-          duration: 0.6,
-          ease: "power3.out",
+          duration: 0.4,
+          ease: "power2.in",
         })
         .to(
           panel2.current,
           {
             yPercent: -100,
-            duration: 0.6,
-            ease: "power3.out",
+            duration: 0.4,
+            ease: "power2.in",
             onComplete: () => {
               window.dispatchEvent(new Event("transition-exit-complete"));
             },

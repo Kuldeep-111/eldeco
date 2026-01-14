@@ -57,11 +57,11 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
 
       <aside
         ref={menuRef}
-        className="fixed top-0 right-0 z-[999] h-full w-[400px] bg-white p-8 translate-x-full"
+        className="fixed top-0 right-0 z-[999] h-full w-[400px] bg-white px-8 py-[50px] translate-x-full"
       >
         <button
           onClick={onClose}
-          className="absolute right-6 top-6 text-3xl hover:rotate-90 transition-transform"
+          className="absolute bg-black text-white rounded-full w-[40px] h-[40px] flex items-center justify-center text-[24px]  right-6 top-[50px] text-3xl hover:rotate-90 transition-transform"
         >
           <IoClose />
         </button>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Heading from '../../common/typography/Heading'
 import SubHeading from '../../common/typography/SubHeading';
-import Card from './Card';
+import Card from '../../common/cards/Card';
 
 const data={
     heading:"what we do",
@@ -9,7 +9,7 @@ const data={
     projects:[
         {image:"/images/projects/platter-1.jpg",alt:"platter",category:"Residential",slug:"/"},
         {image:"/images/projects/platter-2.jpg",alt:"platter",category:"Commercial",slug:"/"},
-        {image:"/images/projects/platter-3.png",alt:"platter",category:"Industrial",slug:"/"},
+        {image:"/images/projects/platter-3.webp",alt:"platter",category:"Industrial",slug:"/"},
     ]
 
 }

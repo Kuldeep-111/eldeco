@@ -6,7 +6,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Menu from "./Menu";
-import TransitionLink from "../../transition/TransitionLink";
+import TransitionLink from "../typography/TransitionLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,17 +27,35 @@ useEffect(() => {
   const updateHeader = () => {
     const current = window.scrollY;
 
+  // ✅ reset at top
+  if (current <= 0) {
+    gsap.to(headerRef.current, {
+      yPercent: 0,
+      backgroundColor: "transparent",
+      duration: 0.25,
+      ease: "power2.out",
+      overwrite: true,
+    });
+
+    lastScroll = current;
+    ticking = false;
+    return;
+  }
+
+
     if (!menuOpen) {
       if (current > lastScroll && current > 100) {
         gsap.to(headerRef.current, {
           yPercent: -100,
           duration: 0.35,
+          backgroundColor: "transparent",
           ease: "power2.out",
           overwrite: true,
         });
       } else if (current < lastScroll) {
         gsap.to(headerRef.current, {
           yPercent: 0,
+          backgroundColor:"#ffffff",
           duration: 0.35,
           ease: "power2.out",
           overwrite: true,
@@ -68,7 +86,7 @@ useEffect(() => {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 z-[999] h-[70px] w-full bg-white"
+        className="fixed top-0 left-0 z-[999] h-[70px] w-full "
       >
         <div className="wrapper h-full">
           <div className="flex h-full w-full items-center justify-between">

@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomLink from '../typography/CustomLink'
 import FixedWrapper from './FixedWrapper'
-import useIsScroll from '../../hooks/useIsScroll'
+import useIsScroll from '../../../../hooks/website/useIsScroll'
 
 const links=[
     {label:"Our Story",link:"/"},

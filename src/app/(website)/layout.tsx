@@ -1,10 +1,10 @@
-import AnimationProvider from "@/components/website/AnimationProvider";
+import AnimationProvider from "@/shared/AnimationProvider";
 import Footer from "@/components/website/common/footer/Footer";
 import TopFooter from "@/components/website/common/footer/TopFooter";
 import Header from "@/components/website/common/header/Header";
-import SmoothScroller from "@/components/website/common/SmoothScroller";
-import PageTransition from "@/components/website/transition/PageTransition";
-import { TransitionProvider } from "@/components/website/transition/TransitionContext";
+import SmoothScroller from "@/shared/SmoothScroller";
+import PageTransition from "@/shared/PageTransition";
+import { TransitionProvider } from "@/providers/TransitionContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 // import { CardData } from "@/types";
-import Pera from "../../common/typography/Pera";
+import Pera from "../typography/Pera";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
 import { CardData } from "../../types/card";
