@@ -58,25 +58,27 @@ const PageTransition = () => {
         isFirstLoad.current = false;
         return;
       }
+    //   gsap.set(panel1.current, { zIndex: 2 });
+    // gsap.set(panel2.current, { zIndex: 1 });
 
       gsap
         .timeline()
-        .to(panel1.current, {
+        .to(panel2.current, {
           yPercent: -100,
           duration: 0.4,
           ease: "power2.in",
         })
         .to(
-          panel2.current,
+          panel1.current,
           {
             yPercent: -100,
-            duration: 0.4,
+            duration: 0.6,
             ease: "power2.in",
             onComplete: () => {
               window.dispatchEvent(new Event("transition-exit-complete"));
             },
           },
-          "-=0.4"
+          "-=0.2"
         );
     },
     { scope: container, dependencies: [pathname] }
@@ -87,7 +89,7 @@ const PageTransition = () => {
       ref={container}
       className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden"
     >
-      <div ref={panel1} className="absolute inset-0 bg-[var(--foreground)]" />
+      <div ref={panel1} className="absolute inset-0 bg-[var(--foreground)] " />
       <div ref={panel2} className="absolute inset-0 bg-[var(--background)]" />
     </div>
   );

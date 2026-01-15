@@ -1,7 +1,7 @@
 import Banner from '@/components/website/common/banner/Banner'
 import AboutUs from '@/components/website/pages/home/AboutUs'
 import Timeline from '@/components/website/pages/story/Timeline';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 
 const banner={
@@ -51,8 +51,10 @@ const page = () => {
   return (
     <>
     <Banner data={banner}/>
+    <Suspense fallback={null}>
     <AboutUs data={about} />
     <Timeline data={timeline}/>
+    </Suspense>
       
     </>
   )

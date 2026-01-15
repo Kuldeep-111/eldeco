@@ -1,6 +1,6 @@
 import Banner from '@/components/website/common/banner/Banner'
 import TeamCard from '@/components/website/pages/team/TeamCard'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 
 const banner={
@@ -37,8 +37,10 @@ const team ={
 const page = () => {
   return (
     <>
-    <Banner data={banner}/>
+    <Banner data={banner}/>    
+    <Suspense fallback={null}>
     <TeamCard data={team}/>
+    </Suspense>
       
     </>
   )

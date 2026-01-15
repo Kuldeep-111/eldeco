@@ -44,12 +44,30 @@ body {
   height: auto;
 }
 
-/* gsap style end */
-/* .footer {
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-  will-change: clip-path;
+/* swiper dots style start */
+/* Slider pagination */
+.image-slider .swiper-pagination {
+  bottom: 12px !important;
 }
-.footer.is-active {
-  pointer-events: auto;
-} */
+.image-slider .swiper-pagination.swiper-pagination-clickable{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.image-slider .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: white;
+  opacity: 1;
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+}
+
+.image-slider .swiper-pagination-bullet-active {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+}
+
+/* swiper dots style end */

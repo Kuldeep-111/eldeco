@@ -7,6 +7,7 @@ import Leadership from "@/components/website/pages/home/Leadership";
 import WhatWeDo from "@/components/website/pages/home/WhatWeDo";
 import PressRelease from "@/components/website/pages/home/PressRelease";
 import Testimonial from "@/components/website/pages/home/Testimonial";
+import { Suspense } from "react";
 const about = {
   heading: "about us",
   subheading:
@@ -20,6 +21,7 @@ export default function Home() {
   return (
    <>
      <Hero/>
+    <Suspense fallback={null}>
      <Overview/>
      <AboutUs data={about}/>
      <FeatureProjects/>
@@ -28,6 +30,8 @@ export default function Home() {
      <Leadership/>
      <Testimonial/>
      <PressRelease/>
+     </Suspense>
+     
    </>
   );
 }

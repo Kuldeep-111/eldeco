@@ -5,6 +5,7 @@ import CitiesPresence from '@/components/website/pages/about/CitiesPresence';
 import MissionVision from '@/components/website/pages/about/MissionVision';
 import AboutUs from '@/components/website/pages/home/AboutUs'
 import React from 'react'
+import { Suspense } from "react"
 
 const banner={
   heading:"Building a lifetime of unforgettable moments.",
@@ -38,11 +39,13 @@ const page = () => {
   return (
     <>
     <Banner data={banner}/>
+      <Suspense fallback={null}>
     <AboutUs data={about}/>
     <BasicDetails/>
     <CitiesPresence/>
     <MissionVision data={missionVisionData}/>
     <AboutLinks/>
+      </Suspense>
       
     </>
   )
