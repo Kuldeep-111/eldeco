@@ -3,7 +3,7 @@ export interface ProjectCardType {
   alt: string;
   name: string;
   location: string;
-  category: "residential" | "commercial" | "industrial";
+  category: string;
   subTypology: string;
   phone: string;
   rera: string;

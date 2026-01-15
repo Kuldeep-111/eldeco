@@ -44,7 +44,7 @@ useEffect(() => {
 
 
     if (!menuOpen) {
-      if (current > lastScroll && current > 100) {
+      if (current > lastScroll && current > 1) {
         gsap.to(headerRef.current, {
           yPercent: -100,
           duration: 0.35,
@@ -86,7 +86,7 @@ useEffect(() => {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 z-[999] h-[70px] w-full "
+        className="fixed top-0 left-0 z-[99] h-[70px] w-full "
       >
         <div className="wrapper h-full">
           <div className="flex h-full w-full items-center justify-between">

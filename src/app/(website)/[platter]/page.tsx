@@ -26,17 +26,11 @@ const Page = async ({ params }: PageProps) => {
     notFound()
   }
 
-  // const filteredData: ProjectCardType[] = projectsData.filter(
-  //   item => item.category.toLowerCase() === normalizedPlatter
-  // )
-   const filteredData: ProjectCardType[] = projectsData
-    .filter(item => item.category.toLowerCase() === normalizedPlatter)
-    .map(item => ({
-      ...item,
-      category: item.category.toLowerCase() as Category,
-    }))
+  const filteredData: ProjectCardType[] = projectsData.filter(
+    item => item.category.toLowerCase() === normalizedPlatter
+  );
 
-  return <Projects data={filteredData} />
+  return <Projects platter ={normalizedPlatter} data={filteredData} />
 }
 
 export default Page
