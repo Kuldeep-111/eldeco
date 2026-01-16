@@ -57,6 +57,7 @@ export default function SmoothScroller({
       const footer = document.querySelector<HTMLElement>(".footer");
       const finalSection = document.querySelector<HTMLElement>(".final");
       const footerWrapper = document.querySelector<HTMLElement>(".trigger-footer");
+      const fixedStrips = document.querySelectorAll<HTMLElement>("#fixed-components > div");
 
       if (footer && finalSection && contentRef.current && footerWrapper) {
         const footerHeight = footer.offsetHeight;
@@ -82,6 +83,46 @@ export default function SmoothScroller({
             onLeaveBack: () => (footer.style.pointerEvents = "none"),
           },
         });
+        ScrollTrigger.create({
+  trigger: footerWrapper,
+  start: "top bottom",
+  scroller: smoother?.wrapper(), // 🔴 REQUIRED with ScrollSmoother
+
+  onEnter: () => {
+    const fixedStrips =
+      document.querySelectorAll<HTMLElement>("#fixed-components .strip-fixed");
+
+    fixedStrips.forEach((strip) => {
+      gsap.to(strip, {
+        yPercent: 100,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        pointerEvents: "none",
+      });
+    });
+
+    footer.style.pointerEvents = "auto";
+  },
+
+  onLeaveBack: () => {
+    const fixedStrips =
+      document.querySelectorAll<HTMLElement>("#fixed-components .strip-fixed");
+
+    fixedStrips.forEach((strip) => {
+      gsap.to(strip, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out",
+        pointerEvents: "auto",
+      });
+    });
+
+    footer.style.pointerEvents = "none";
+  },
+});
+
       }
     }
 
