@@ -7,6 +7,7 @@ export const projectsData = [
     ],
     alt: "platter 1",
     name: "Eldico Fairway Reserve",
+    slug:"miscrosite",
     location: "Sector 80, Gurugram",
     category:"residential",
     subTypology: "3 and 4 Bedroom Residences",

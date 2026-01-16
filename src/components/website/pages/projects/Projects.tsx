@@ -19,7 +19,7 @@ const Projects: React.FC<ProjectsProps> = ({ data , platter}) => {
         {/* ptojets card */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-[50px]">
         {data.map((item, index) => (
-          <ProjectCard key={index} data={item} />
+          <ProjectCard platter={platter} key={index} data={item} />
         ))}
       </div>
       </div>

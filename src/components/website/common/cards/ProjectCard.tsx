@@ -11,16 +11,18 @@ import { MdLocalPhone } from "react-icons/md";
 import ExternalLink from '../typography/ExternalLink'
 
 interface ProjectCardProps {
-  data: ProjectCardType
+  data: ProjectCardType,
+  platter:string
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({platter, data }) => {
   const [showInfo, setShowInfo] = useState(false)
 
   const {
     images,
     alt,
     name,
+    slug,
     location,
     subTypology,
     phone,
@@ -101,7 +103,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
         </div>
 
         <TransitionLink
-          href="/"
+          href={`/${platter}/${slug}`}
           className="text-[28px] hover:text-[var(--foreground)]"
         >
           <MdArrowOutward />
